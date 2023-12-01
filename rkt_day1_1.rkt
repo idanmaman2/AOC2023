@@ -22,5 +22,5 @@
       [(eof-object? line) 0]
       [else (+ (read-file-lines in) (parse-line line))])))
 
-(define inp (open-input-file "./input.txt"))
-(display (read-file-lines inp))
+(let ([inp (open-input-file "./input.txt")])
+    (display (read-file-lines inp)))
