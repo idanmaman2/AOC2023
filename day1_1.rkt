@@ -1,20 +1,26 @@
-; not finished or something . 
 #lang racket/base
+(require racket/string)
+(require racket/list)
+
 (define (read-file-lines in)
-  (let ([line (read-line in) ])
+  (define (parse-line line)
+    (define (find-first-digit ln)
+      (let ([first-char (car ln)])
+        (cond
+          [(empty? ln) (raise 'ValueError #t)]
+          [(char-numeric? first-char) (string->number (string first-char))]
+          [else (find-first-digit (cdr ln))])))
+    (define (find-last-digit ln)
+      (let ([last-char (list-ref ln (- (length ln) 1))])
+        (cond
+          [(empty? ln) (raise 'ValueError #t)]
+          [(char-numeric? last-char) (string->number (string last-char))]
+          [else (find-last-digit (drop-right ln 1))])))
+    (+ (find-last-digit (string->list line)) (* (find-first-digit (string->list line)) 10)))
+  (let ([line (read-line in)])
     (cond
-      [(eof-object? line) (list)]
-      [else (append (list line) 
-      
-      (let ([line (read-file-lines in)]) 
-        (string-)
-      )
-      
-      
-      )]
-      
-      
-      )))
+      [(eof-object? line) 0]
+      [else (+ (read-file-lines in) (parse-line line))])))
 
 (define inp (open-input-file "./input.txt"))
-(display (read-file-lines inp) ) 
+(display (read-file-lines inp))
