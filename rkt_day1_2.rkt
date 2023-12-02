@@ -1,7 +1,6 @@
 #lang racket/base
 (require racket/string)
 (require racket/list)
-
 (define (read-file-lines in)
   (define (parse-line line)
     (define digits
@@ -13,14 +12,12 @@
           [(func line (car dg)) (hash-ref digits (car dg))]
           [else (rec-is-number-imp (cdr dg))]))
       (rec-is-number-imp (hash-keys digits)))
-
     (define (find-first-digit ln)
       (let ([res (is-number-imp ln string-prefix?)])
         (cond
           [(empty? ln) (raise 'ValueError #t)]
           [(void? res) (find-first-digit (substring ln 1))]
           [else res])))
-
     (define (find-last-digit ln)
       (let ([res (is-number-imp ln string-suffix?)])
         (cond
@@ -32,6 +29,4 @@
     (cond
       [(eof-object? line) 0]
       [else (+ (read-file-lines in) (parse-line line))])))
-
-(define inp (open-input-file "./input.txt"))
-(display (read-file-lines inp))
+(let ([inp (open-input-file "./input.txt")]) (display (read-file-lines inp)))
