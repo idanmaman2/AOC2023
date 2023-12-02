@@ -10,12 +10,14 @@ Future<int> main() async {
           .replaceAll(", ", ",")
           .split(",")
           .map((x) => x.split(" "))));
-  int sum  = inp.map((i)=>colors
-        .map((e) => i
-            .where((x) => x.skip(1).first == e)
-            .map((e) => int.parse(e.first))
-            .followedBy([0]).reduce(max))
-        .reduce((a, b) => a * b)).reduce((a,b)=>a+b) ; 
+  int sum = inp
+      .map((i) => colors
+          .map((e) => i
+              .where((x) => x.skip(1).first == e)
+              .map((e) => int.parse(e.first))
+              .reduce(max))
+          .reduce((a, b) => a * b))
+      .reduce((a, b) => a + b);
   print(sum);
   return 0;
 }
