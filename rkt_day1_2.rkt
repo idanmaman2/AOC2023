@@ -29,4 +29,4 @@
     (cond
       [(eof-object? line) 0]
       [else (+ (read-file-lines in) (parse-line line))])))
-(let ([inp (open-input-file "./input.txt")]) (display (read-file-lines inp)))
+(let ([inp (open-input-file "./inps/input.txt")]) (display (read-file-lines inp)))

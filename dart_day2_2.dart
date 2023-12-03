@@ -3,7 +3,7 @@ import 'dart:math';
 
 Future<int> main() async {
   List<String> colors = ["red", "green", "blue"];
-  int sum = (await File("./input_day2.txt").readAsLines())
+  int sum = (await File("./inps/input_day2.txt").readAsLines())
       .map((e) => (e
           .substring(e.indexOf(": ") + 2)
           .replaceAll(";", ",")

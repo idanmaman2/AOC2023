@@ -2,7 +2,7 @@ import 'dart:io';
 Future<int> main() async {
   Map<String, int> rules = {"red": 12, "green": 13, "blue": 14};
   Iterable<Iterable<List<String>>> inp =
-      (await File("./input_day2.txt").readAsLines()).map((e) => (e
+      (await File("./inps/input_day2.txt").readAsLines()).map((e) => (e
           .substring(e.indexOf(": ") + 2)
           .replaceAll(";", ",")
           .replaceAll(", ", ",")
