@@ -3,14 +3,13 @@ import 'dart:math';
 
 Future<int> main() async {
   List<String> colors = ["red", "green", "blue"];
-  Iterable<Iterable<List<String>>> inp =
-      (await File("./input_day2.txt").readAsLines()).map((e) => (e
+  int sum = (await File("./input_day2.txt").readAsLines())
+      .map((e) => (e
           .substring(e.indexOf(": ") + 2)
           .replaceAll(";", ",")
           .replaceAll(", ", ",")
           .split(",")
-          .map((x) => x.split(" "))));
-  int sum = inp
+          .map((x) => x.split(" "))))
       .map((i) => colors
           .map((e) => i
               .where((x) => x.skip(1).first == e)

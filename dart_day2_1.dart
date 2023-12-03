@@ -8,7 +8,6 @@ Future<int> main() async {
           .replaceAll(", ", ",")
           .split(",")
           .map((x) => x.split(" "))));
-
   int sum = 0;
   for (int i = 1; i < inp.length + 1; i++) {
     if (inp.skip(i - 1).first.every((element) =>
@@ -17,6 +16,5 @@ Future<int> main() async {
     }
   }
   print(sum);
-
   return 0;
 }
