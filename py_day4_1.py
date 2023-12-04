@@ -1,2 +1,2 @@
 import re,operator,math
-print(sum(map(lambda x:math.floor(2**(len(operator.and_(*(set(re.split("\ +",y))for y in re.match(".+\:\ +(.+)\ +\|\ +(.+)",x).groups())))-1)),open("./inps/input_day4.txt",'r').readlines())))
+print(sum(map(lambda x:math.floor(2**(len(operator.and_(*(set(y.split())for y in re.match(".+\:\ +(.+)\ +\|\ +(.+)",x).groups())))-1)),open("./inps/input_day4.txt",'r').readlines())))
