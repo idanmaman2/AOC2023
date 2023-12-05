@@ -1,6 +1,6 @@
 import itertools,re,string,math,collections
 sym=set(string.punctuation)-{'.'}
-b=open("./inps/input_dat3.txt",'r').read().strip('\n').split('\n')
+b=open("./inps/input_day3.txt",'r').read().strip('\n').split('\n')
 gears=collections.defaultdict(list) 
 for x in itertools.chain(*[[[i,x]for x in re.finditer("\d+",b[i])]for i in range(len(b))]) : 
     for pc in range(x[1].start(),x[1].end()): 
