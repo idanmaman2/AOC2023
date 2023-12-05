@@ -1,0 +1,2 @@
+import functools,operator,itertools
+print(sum(map(len,functools.reduce(lambda x,y:x|dict(((y[0],list(itertools.chain('*',*map(lambda z: x[z],y[1])))),)),reversed({i:range(i+1,i+j+1)for i,j in enumerate(map(lambda x:len(operator.and_(*(set(y.split())for y in x.split("|")))),open("./inps/input_day4.txt",'r').readlines()),1)}.items()),{'*':'*'}).values()))-1)
